@@ -1,6 +1,12 @@
+# Gancho que é executado antes de cada cenário
 Before do
   driver.start_driver
-  driver.manage.timeouts.implicit_wait = 10
+  driver.manage.timeouts.implicit_wait = 20
+
+  @nav = Navigator.new
+  @login = LoginScreen.new
+  # Evento do clique do botão começar
+  find_element(xpath:"//android.widget.Button[@text='COMEÇAR']").click
 end
 
 After do |scenario|
